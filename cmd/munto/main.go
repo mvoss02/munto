@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/mvoss02/munto/internal/enablebanking"
+	"github.com/mvoss02/munto/internal/money"
 )
 
 func main() {
@@ -28,4 +29,7 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("Key is: %d \n", key.N.BitLen())
+
+	formattedMoney := money.Format(500, "EUR")
+	fmt.Printf("Formatted money amount: %s \n", formattedMoney)
 }
