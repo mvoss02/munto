@@ -30,6 +30,5 @@ func main() {
 	}
 	fmt.Printf("Key is: %d \n", key.N.BitLen())
 
-	formattedMoney := money.Format(500, "EUR")
-	fmt.Printf("Formatted money amount: %s \n", formattedMoney)
+	fmt.Printf("Formatted money amount: %s \n", money.Money{Minor: 1234, Currency: "EUR"})
 }
