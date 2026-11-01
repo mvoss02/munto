@@ -8,14 +8,14 @@ type Transaction struct {
 	Id          string      `json:"id"`
 	AccountID   string      `json:"account_id"`
 	Amount      money.Money `json:"amount"`
-	Date        string      `json:"date"` // Type will be repalced
+	Date        string      `json:"date"` // Type will be replaced
 	Description string      `json:"description"`
 }
 
 type Account struct {
 	Id       string `json:"id"`
 	Name     string `json:"name"`
-	Currecny string `json:"currency"`
+	Currency string `json:"currency"`
 }
 
 func (t Transaction) IsExpense() bool {
