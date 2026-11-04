@@ -41,3 +41,24 @@ func TestTransactionDecode(t *testing.T) {
 		})
 	}
 }
+
+func TestTransaction_IsExpense(t *testing.T) {
+	tests := []struct {
+		name  string // description of this test case
+		trans Transaction
+		want  bool
+	}{
+		{"Below zero", Transaction{Amount: money.Money{Minor: -100, Currency: "EUR"}}, true},
+		{"Above zero", Transaction{Amount: money.Money{Minor: 500, Currency: "EUR"}}, false},
+		{"Zero", Transaction{Amount: money.Money{Minor: 0, Currency: "EUR"}}, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.trans.IsExpense()
+
+			if tt.want != got {
+				t.Errorf("IsExpense() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
